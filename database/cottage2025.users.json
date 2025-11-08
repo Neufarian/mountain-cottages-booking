@@ -1,0 +1,153 @@
+[{
+  "_id": {
+    "$oid": "68e3c585a7b7eebaa9d4c269"
+  },
+  "username": "u1",
+  "password": "$argon2id$v=19$m=65536,t=3,p=4$0wS1VofWG/uPtL9j6rDW0A$87qJthpsEYteW47CPsT8Dza2pW4/7J8ed3l+SMMxIeA",
+  "firstName": "fn1",
+  "lastName": "ln1",
+  "gender": "F",
+  "address": "a1",
+  "phone": "p1",
+  "email": "e1",
+  "profileImage": "/uploads/users/u1/profile.jpg",
+  "creditCard": "5500123412341234",
+  "type": "tourist",
+  "status": "approved"
+},
+{
+  "_id": {
+    "$oid": "68e3c5e3a7b7eebaa9d4c270"
+  },
+  "username": "u2",
+  "password": "$argon2id$v=19$m=65536,t=3,p=4$di0wGJGZYKApDSkT3AMYkw$zh+VRxuESqd7W4re858E9qw3PqPNQNwT7lvh0nHVXI8",
+  "firstName": "fn2",
+  "lastName": "ln2",
+  "gender": "M",
+  "address": "a2",
+  "phone": "p2",
+  "email": "e2",
+  "profileImage": "/uploads/users/u2/profile.jpg",
+  "creditCard": "5500123412341234",
+  "type": "owner",
+  "status": "approved"
+},
+{
+  "_id": {
+    "$oid": "68e3c609a7b7eebaa9d4c273"
+  },
+  "username": "u3",
+  "password": "$argon2id$v=19$m=65536,t=3,p=4$6vQOV6ron01Tf2v5noen1A$m7z0V8+IX4/epncYVUnTSWHZmpMup90XeEN+UWbSeDU",
+  "firstName": "fn3",
+  "lastName": "ln3",
+  "gender": "M",
+  "address": "a3",
+  "phone": "p3",
+  "email": "e3",
+  "profileImage": "/uploads/defaultProfileImage.jpg",
+  "creditCard": "",
+  "type": "admin",
+  "status": ""
+},
+{
+  "_id": {
+    "$oid": "68e3c6aca7b7eebaa9d4c276"
+  },
+  "username": "u4",
+  "password": "$argon2id$v=19$m=65536,t=3,p=4$rT7lAjQyqLYxgeNAMNAFAg$Qxv9R0D0aSnChHyqtINa6QUA96LtKAqkgd58PoqHEyc",
+  "firstName": "fn4",
+  "lastName": "ln4",
+  "gender": "M",
+  "address": "a4",
+  "phone": "p4",
+  "email": "e4",
+  "profileImage": "/uploads/defaultProfileImage.jpg",
+  "creditCard": "5500123412341234",
+  "type": "owner",
+  "status": "approved"
+},
+{
+  "_id": {
+    "$oid": "68e3c6f3a7b7eebaa9d4c279"
+  },
+  "username": "u5",
+  "password": "$argon2id$v=19$m=65536,t=3,p=4$yrQ4R6JfBdzLP5hgmwb/QQ$S6dvYwV1nk4gRyOuf7tCDU7gNIzGxeMz1lUVcCe82sc",
+  "firstName": "fn5",
+  "lastName": "ln5",
+  "gender": "F",
+  "address": "a5",
+  "phone": "p5",
+  "email": "e5",
+  "profileImage": "/uploads/defaultProfileImage.jpg",
+  "creditCard": "5500123412341234",
+  "type": "tourist",
+  "status": "approved"
+},
+{
+  "_id": {
+    "$oid": "68e416304abc8fc545671354"
+  },
+  "username": "u6",
+  "password": "$argon2id$v=19$m=65536,t=3,p=4$oTVfwk+OG0pzM56LccsfDA$us75caeFEy+D7QAagWkNG68CLCK0GiN7v5Uu7yG83kY",
+  "firstName": "fn6",
+  "lastName": "ln6",
+  "gender": "M",
+  "address": "a6",
+  "phone": "p6",
+  "email": "e6",
+  "profileImage": "/uploads/defaultProfileImage.jpg",
+  "creditCard": "5500123412341234",
+  "type": "tourist",
+  "status": "approved"
+},
+{
+  "_id": {
+    "$oid": "68e6f3d423f39193dd4336a7"
+  },
+  "username": "u7",
+  "password": "$argon2id$v=19$m=65536,t=3,p=4$nKHzD9jgpm57aijhV2K4UA$vDoqL92S/82JwdFzzMb9mCNcCWylV+ipnpeTExpew4Q",
+  "firstName": "fn7",
+  "lastName": "ln7",
+  "gender": "F",
+  "address": "a7",
+  "phone": "p7",
+  "email": "e7",
+  "profileImage": "/uploads/defaultProfileImage.jpg",
+  "creditCard": "5100123412341234",
+  "type": "tourist",
+  "status": "approved"
+},
+{
+  "_id": {
+    "$oid": "68ee73d607c95a0372ee9901"
+  },
+  "username": "u8",
+  "password": "$argon2id$v=19$m=65536,t=3,p=4$GEQ82lwESEu9vBdhsSg2Qg$agCIMzLETgKF9uqRR1OTMIInCOqnFt0tha5E0L2qjEc",
+  "firstName": "fn8",
+  "lastName": "ln8",
+  "gender": "F",
+  "address": "a8",
+  "phone": "p8",
+  "email": "e8",
+  "profileImage": "/uploads/defaultProfileImage.jpg",
+  "creditCard": "5500123412341234",
+  "type": "owner",
+  "status": "waiting"
+},
+{
+  "_id": {
+    "$oid": "68ef8901113892ea71a49be8"
+  },
+  "username": "u9",
+  "password": "$argon2id$v=19$m=65536,t=3,p=4$2vl5p2Z7pCB/Gusr2/ztgg$4kWAMu3aBR3V7jSSe1voHqGMZYywBkIV0NQ+5tR0JGU",
+  "firstName": "fn9",
+  "lastName": "ln9",
+  "gender": "M",
+  "address": "a9",
+  "phone": "p9",
+  "email": "e9",
+  "profileImage": "/uploads/defaultProfileImage.jpg",
+  "creditCard": "361234123412341",
+  "type": "tourist",
+  "status": "approved"
+}]

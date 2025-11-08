@@ -1,0 +1,172 @@
+<div class="admin-page">
+  <header class="admin-header card">
+    <div class="header-top">
+      <button class="btn btn-logout" routerLink="/hidden">Log out</button>
+    </div>
+
+    <div class="change-password form-section">
+      <h2>Change password</h2>
+      <label>
+        Old password
+        <input type="password" [(ngModel)]="oldPassword" placeholder="Enter old password">
+      </label>
+      <label>
+        New password
+        <input type="password" [(ngModel)]="newPassword" placeholder="Enter new password">
+      </label>
+      <label>
+        Repeat password
+        <input type="password" [(ngModel)]="repeatPassword" placeholder="Repeat new password">
+      </label>
+      <button class="btn btn-primary" (click)="changePassword()">Change</button>
+    </div>
+  </header>
+
+  <hr>
+
+  <div class="admin-container">
+    <div class="users-list card">
+      <h2>All users</h2>
+      @if(allUsers.length > 0) {
+        <table>
+          <tr>
+            <th></th>
+            <th>Username</th>
+            <th>First name</th>
+            <th>Last name</th>
+            <th>Gender</th>
+            <th>Address</th>
+            <th>Phone</th>
+            <th>Email</th>
+            <th>Type</th>
+            <th>Status</th>
+            <th>Actions</th>
+          </tr>
+          @for(user of allUsers; track user.username) {
+            <tr>
+              <td><button (click)="startEdit(user)">Edit</button></td>
+              <td>{{user.username}}</td>
+              <td>{{user.firstName}}</td>
+              <td>{{user.lastName}}</td>
+              <td>{{user.gender}}</td>
+              <td>{{user.address}}</td>
+              <td>{{user.phone}}</td>
+              <td>{{user.email}}</td>
+              <td>{{user.type}}</td>
+              <td>{{user.status}}</td>
+              <td>
+                <button (click)="deleteUser(user.username)">Delete</button>
+                @if(user.status == 'waiting') {
+                  <button (click)="changeStatus(user.username, 'approved')">Approve</button>
+                  <button (click)="changeStatus(user.username, 'declined')">Decline</button>
+                } @else if(user.status == 'approved') {
+                  <button (click)="changeStatus(user.username, 'declined')">Deactivate</button>
+                }
+              </td>
+            </tr>
+          }
+        </table>
+      } @else {
+        <p>No users found.</p>
+      }
+    </div>
+  </div>
+
+  @if(showEdit) {
+    <div class="edit-overlay">
+      <div class="edit-panel card">
+        <h2>Edit user</h2>
+        <form enctype="multipart/form-data">
+          <div class="form-row">
+            <label>Username<input type="text" name="editUsername" [(ngModel)]="edtUser.username"></label>
+            <label>First name<input type="text" name="editFirstName" [(ngModel)]="edtUser.firstName"></label>
+            <label>Last name<input type="text" name="editLastName" [(ngModel)]="edtUser.lastName"></label>
+          </div>
+          <div class="form-row">
+              <label>Gender</label>
+              <div class="radio-group">
+                  <label><input type="radio" name="editGender" [(ngModel)]="edtUser.gender" value="M">M</label>
+                  <label><input type="radio" name="editGender" [(ngModel)]="edtUser.gender" value="F">F</label>
+              </div>
+          </div>
+
+          <div class="form-row">
+            <label>Type</label>
+            <div class="radio-group">
+                <label><input type="radio" name="editType" [(ngModel)]="edtUser.type" value="tourist">Tourist</label>
+                <label><input type="radio" name="editType" [(ngModel)]="edtUser.type" value="owner">Owner</label>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <label>Status</label>
+            <div class="radio-group">
+                <label><input type="radio" name="editStatus" [(ngModel)]="edtUser.status" value="approved">Approved</label>
+                <label><input type="radio" name="editStatus" [(ngModel)]="edtUser.status" value="declined">Declined</label>
+                <label><input type="radio" name="editStatus" [(ngModel)]="edtUser.status" value="waiting">Waiting</label>
+            </div>
+          </div>
+          <div class="form-row">
+            <label>Address<input type="text" name="editAddress" [(ngModel)]="edtUser.address"></label>
+            <label>Phone<input type="text" name="editPhone" [(ngModel)]="edtUser.phone"></label>
+            <label>Email<input type="email" name="editEmail" [(ngModel)]="edtUser.email"></label>
+          </div>
+          <button class="btn btn-success" (click)="editUser()">Confirm</button>
+        </form>
+      </div>
+    </div>
+  }
+
+  <hr>
+
+  <div class="cottages-list card">
+    <h2>All cottages</h2>
+    <table>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Location</th>
+        <th>Services</th>
+        <th>Owner</th>
+        <th>Phone</th>
+        <th>Price per night</th>
+        <th>Coordinates</th>
+        <th>Average rating</th>
+        <th>Date available</th>
+        <th>Action</th>
+      </tr>
+      @for(cottage of allCottages; track cottage.id) {
+        <tr [ngClass]="{'highlight': poorRating(cottage.reservations) && !isBlocked(cottage.dateAvailable)}">
+          <td>{{cottage.id}}</td>
+          <td>{{cottage.name}}</td>
+          <td>{{cottage.location}}</td>
+          <td>{{cottage.services}}</td>
+          <td>{{ getOwner(cottage.owner) }}</td>
+          <td>{{cottage.phone}}</td>
+          <td>
+            <table>
+              <tr><td>Summer: {{cottage.prices.summer}} RSD</td></tr>
+              <tr><td>Winter: {{cottage.prices.winter}} RSD</td></tr>
+            </table>
+          </td>
+          <td>
+            <table>
+              <tr><td>x: {{cottage.coordinates.x}}</td></tr>
+              <tr><td>y: {{cottage.coordinates.y}}</td></tr>
+            </table>
+          </td>
+          <td>{{avgRating(cottage.reservations)}}</td>
+          <td>
+            <table>
+              <tr><td>{{ cottage.dateAvailable | date: 'dd.MM.yyyy.' }}</td></tr>
+              <tr><td>{{ cottage.dateAvailable | date: 'HH:mm' }}</td></tr>
+            </table>
+          </td>
+          @if (poorRating(cottage.reservations) && !isBlocked(cottage.dateAvailable)) {
+            <td><button class="btn btn-warning" (click)="blockTemp(cottage)">Block temporarily</button></td>
+          }
+        </tr>
+      }
+    </table>
+  </div>
+</div>

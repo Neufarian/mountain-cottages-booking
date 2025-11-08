@@ -1,0 +1,15 @@
+{
+  "id": 5,
+  "name": "n5",
+  "location": "l5",
+  "services": "s5",
+  "phone": "p5",
+  "prices": {
+    "summer": 5,
+    "winter": 5
+  },
+  "coordinates": {
+    "x": "5°5'5.5\"N",
+    "y": "5°5'5.5\"E"
+  }
+}

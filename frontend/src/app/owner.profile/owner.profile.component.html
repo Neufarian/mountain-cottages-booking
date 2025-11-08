@@ -1,0 +1,38 @@
+<div class="profile-page card">
+  <h2>Profile</h2>
+
+  <div class="profile-form form-section">
+    <label>First name:
+      <input [(ngModel)]="user.firstName" [disabled]="!editing" placeholder="First name">
+    </label>
+
+    <label>Last name:
+      <input [(ngModel)]="user.lastName" [disabled]="!editing" placeholder="Last name">
+    </label>
+
+    <label>Address:
+      <input [(ngModel)]="user.address" [disabled]="!editing" placeholder="Address">
+    </label>
+
+    <label>Email:
+      <input type="email" [(ngModel)]="user.email" [disabled]="!editing" placeholder="Email">
+    </label>
+
+    <label>Phone:
+      <input [(ngModel)]="user.phone" [disabled]="!editing" placeholder="Phone">
+    </label>
+
+    <div class="profile-image-container">
+      <img [src]="'http://localhost:4000' + user.profileImage" class="profile-image">
+    </div>
+
+    <div class="profile-actions">
+      @if(editing) {
+        <input type="file" (change)="onFileSelected($event)" accept=".png,.jpg,.jpeg">
+        <button class="btn btn-success" (click)="editUser()">Confirm</button>
+      } @else {
+        <button class="btn btn-primary" (click)="editing = true">Edit</button>
+      }
+    </div>
+  </div>
+</div>

@@ -1,0 +1,37 @@
+<div class="owner-statistics">
+  <h2>My statistics</h2>
+
+  @if (myCottages.length > 0) {
+    <div class="cottages-list">
+      @for (cottage of myCottages; track cottage.id) {
+        <div class="cottage-card card">
+          <h3>{{ cottage.name }}</h3>
+
+          <div class="charts-container">
+            <div class="chart-wrapper">
+              <h4>Reservations per month</h4>
+              <canvas baseChart
+                      [data]="barCharts[cottage.id]"
+                      [options]="barChartOptions"
+                      [type]="barChartType"
+                      class="chart">
+              </canvas>
+            </div>
+
+            <div class="chart-wrapper">
+              <h4>Weekend vs. weekday</h4>
+              <canvas baseChart
+                      [data]="pieCharts[cottage.id]"
+                      [options]="pieChartOptions"
+                      [type]="pieChartType"
+                      class="chart">
+              </canvas>
+            </div>
+          </div>
+        </div>
+      }
+    </div>
+  } @else {
+    <p>You have no statistics.</p>
+  }
+</div>

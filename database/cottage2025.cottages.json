@@ -1,0 +1,278 @@
+[{
+  "_id": {
+    "$oid": "68ebcda05bfd28be5b6b6d81"
+  },
+  "id": 1,
+  "name": "Vila Trešnjica",
+  "location": "Tara",
+  "services": "Terrace with a view, air conditioning, swimming pool",
+  "owner": "u2",
+  "phone": "+381641234321",
+  "pictures": [
+    "/uploads/cottages/1/image1.jpg",
+    "/uploads/cottages/1/image2.jpg",
+    "/uploads/cottages/1/image3.jpg"
+  ],
+  "prices": {
+    "summer": 4999,
+    "winter": 3499
+  },
+  "coordinates": {
+    "x": "43°51'27.1\"N",
+    "y": "19°27'43.4\"E"
+  },
+  "reservations": [
+    {
+      "id": 1,
+      "tourist": "u1",
+      "startDate": "2025-10-25T00:00:00.000Z",
+      "endDate": "2025-10-30T00:00:00.000Z",
+      "numAdults": 2,
+      "numChildren": 0,
+      "requests": "",
+      "status": "declined",
+      "declinedComment": "Objekat zatvoren zbog radova",
+      "rating": null,
+      "touristComment": ""
+    },
+    {
+      "id": 2,
+      "tourist": "u5",
+      "startDate": "2025-09-10T00:00:00.000Z",
+      "endDate": "2025-09-15T00:00:00.000Z",
+      "numAdults": 1,
+      "numChildren": 0,
+      "requests": "",
+      "status": "approved",
+      "declinedComment": "",
+      "rating": 1,
+      "touristComment": "Vikendica top. Vlasnik užasan!!!"
+    },
+    {
+      "id": 3,
+      "tourist": "u1",
+      "startDate": "2025-10-02T00:00:00.000Z",
+      "endDate": "2025-10-04T00:00:00.000Z",
+      "numAdults": 2,
+      "numChildren": 2,
+      "requests": "",
+      "status": "approved",
+      "declinedComment": "",
+      "rating": 1,
+      "touristComment": "Vlasnik veoma neljubazan. Za izbegavanje."
+    },
+    {
+      "id": 4,
+      "tourist": "u6",
+      "startDate": "2025-10-04T00:00:00.000Z",
+      "endDate": "2025-10-05T00:00:00.000Z",
+      "numAdults": 2,
+      "numChildren": 2,
+      "requests": "",
+      "status": "approved",
+      "declinedComment": "",
+      "rating": 1,
+      "touristComment": "Veoma neprofesionalan vlasnik"
+    }
+  ],
+  "dateAvailable": {
+    "$date": "2025-10-17T15:24:01.652Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "68ebcf385bfd28be5b6b6d83"
+  },
+  "id": 2,
+  "name": "Vila Borova",
+  "location": "Tara",
+  "services": "Fireplace, terrace with forest view, free parking, Wi-Fi",
+  "owner": "u4",
+  "phone": "+381607654321",
+  "pictures": [
+    "/uploads/cottages/2/image1.jpg",
+    "/uploads/cottages/2/image2.jpg",
+    "/uploads/cottages/2/image3.jpg",
+    "/uploads/cottages/2/image4.jpg"
+  ],
+  "prices": {
+    "summer": 5200,
+    "winter": 3700
+  },
+  "coordinates": {
+    "x": "43°53'11.5\"N",
+    "y": "19°30'42.2\"E"
+  },
+  "reservations": [
+    {
+      "id": 1,
+      "tourist": "u1",
+      "startDate": "2025-05-10T00:00:00.000Z",
+      "endDate": "2025-05-14T00:00:00.000Z",
+      "numAdults": 2,
+      "numChildren": 0,
+      "requests": "",
+      "status": "approved",
+      "declinedComment": "",
+      "rating": null,
+      "touristComment": ""
+    },
+    {
+      "id": 2,
+      "tourist": "u3",
+      "startDate": "2025-10-14T00:00:00.000Z",
+      "endDate": "2025-10-20T00:00:00.000Z",
+      "numAdults": 3,
+      "numChildren": 1,
+      "requests": "Kasni check-in",
+      "status": "approved",
+      "declinedComment": "",
+      "rating": 4,
+      "touristComment": "Kuća lepa, ali internet slab."
+    },
+    {
+      "id": 3,
+      "tourist": "u7",
+      "startDate": "2025-10-04T00:00:00.000Z",
+      "endDate": "2025-10-05T00:00:00.000Z",
+      "numAdults": 2,
+      "numChildren": 0,
+      "requests": "",
+      "status": "approved",
+      "declinedComment": "",
+      "rating": 2,
+      "touristComment": "Wi-Fi užasan, kuća je okej, ali put do kuće je malo uzak"
+    }
+  ],
+  "dateAvailable": {
+    "$date": "2025-10-13T12:00:00.000Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "68ebcf385bfd28be5b6b6d84"
+  },
+  "id": 3,
+  "name": "Vila Zlatar",
+  "location": "Zlatibor",
+  "services": "Jacuzzi, BBQ area, mountain view, smart TV",
+  "owner": "u2",
+  "phone": "+381601234567",
+  "pictures": [],
+  "prices": {
+    "summer": 5800,
+    "winter": 4200
+  },
+  "coordinates": {
+    "x": "43°43'45.3\"N",
+    "y": "19°41'10.8\"E"
+  },
+  "reservations": [
+    {
+      "id": 1,
+      "tourist": "u8",
+      "startDate": "2025-03-02T00:00:00.000Z",
+      "endDate": "2025-03-09T00:00:00.000Z",
+      "numAdults": 4,
+      "numChildren": 0,
+      "requests": "Roštilj set",
+      "status": "waiting",
+      "declinedComment": "",
+      "rating": null,
+      "touristComment": ""
+    },
+    {
+      "id": 2,
+      "tourist": "u5",
+      "startDate": "2025-09-10T00:00:00.000Z",
+      "endDate": "2025-09-13T00:00:00.000Z",
+      "numAdults": 2,
+      "numChildren": 0,
+      "requests": "",
+      "status": "approved",
+      "declinedComment": "",
+      "rating": 4,
+      "touristComment": "Kuća lepa, jacuzzi mogao biti čistiji."
+    },
+    {
+      "id": 3,
+      "tourist": "u6",
+      "startDate": "2025-10-20T00:00:00.000Z",
+      "endDate": "2025-10-22T00:00:00.000Z",
+      "numAdults": 2,
+      "numChildren": 1,
+      "requests": "Krevetac za dete",
+      "status": "waiting",
+      "declinedComment": "",
+      "rating": null,
+      "touristComment": ""
+    }
+  ],
+  "dateAvailable": {
+    "$date": "2025-10-12T10:00:00.000Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "68ebcf385bfd28be5b6b6d85"
+  },
+  "id": 4,
+  "name": "Planinska kuća Jela",
+  "location": "Kopaonik",
+  "services": "Ski in/out access, sauna, private parking, fireplace",
+  "owner": "u4",
+  "phone": "+381605551111",
+  "pictures": [],
+  "prices": {
+    "summer": 7000,
+    "winter": 5500
+  },
+  "coordinates": {
+    "x": "43°17'48.0\"N",
+    "y": "20°48'15.0\"E"
+  },
+  "reservations": [
+    {
+      "id": 1,
+      "tourist": "u7",
+      "startDate": "2025-01-05T00:00:00.000Z",
+      "endDate": "2025-01-10T00:00:00.000Z",
+      "numAdults": 2,
+      "numChildren": 0,
+      "requests": "Rano grejanje uključiti",
+      "status": "approved",
+      "declinedComment": "",
+      "rating": 5,
+      "touristComment": "Najbolja vikendica na Kopaoniku!"
+    },
+    {
+      "id": 2,
+      "tourist": "u1",
+      "startDate": "2025-09-01T00:00:00.000Z",
+      "endDate": "2025-09-05T00:00:00.000Z",
+      "numAdults": 3,
+      "numChildren": 0,
+      "requests": "Kasni dolazak",
+      "status": "approved",
+      "declinedComment": "",
+      "rating": 4,
+      "touristComment": "Sve ok, samo krevet malo tvrd."
+    },
+    {
+      "id": 3,
+      "tourist": "u5",
+      "startDate": "2025-12-20T00:00:00.000Z",
+      "endDate": "2025-12-27T00:00:00.000Z",
+      "numAdults": 4,
+      "numChildren": 2,
+      "requests": "",
+      "status": "declined",
+      "declinedComment": "Rezervacija otkazana zbog preklapanja termina",
+      "rating": null,
+      "touristComment": ""
+    }
+  ],
+  "dateAvailable": {
+    "$date": "2025-10-13T09:00:00.000Z"
+  }
+}]

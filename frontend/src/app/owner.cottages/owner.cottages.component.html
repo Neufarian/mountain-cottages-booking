@@ -1,0 +1,105 @@
+<div class="cottages-page card">
+  <h2>My cottages</h2>
+
+  @if (myCottages.length > 0) {
+    <div class="table-container">
+      <table class="cottages-table">
+        <thead>
+          <tr>
+            <th></th>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Location</th>
+            <th>Services</th>
+            <th>Phone</th>
+            <th>Price per night</th>
+            <th>Coordinates</th>
+            <th>Average rating</th>
+            <th>Date available</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          @for(cottage of myCottages; track cottage.id) {
+            <tr>
+              <td><button class="btn btn-edit" (click)="startEdit(cottage)">Edit</button></td>
+              <td>{{cottage.id}}</td>
+              <td>{{cottage.name}}</td>
+              <td>{{cottage.location}}</td>
+              <td>{{cottage.services}}</td>
+              <td>{{cottage.phone}}</td>
+              <td>
+                <table>
+                  <tr><td>Summer: {{cottage.prices.summer}} RSD</td></tr>
+                  <tr><td>Winter: {{cottage.prices.winter}} RSD</td></tr>
+                </table>
+              </td>
+              <td>
+                <table>
+                  <tr><td>x: {{cottage.coordinates.x}}</td></tr>
+                  <tr><td>y: {{cottage.coordinates.y}}</td></tr>
+                </table>
+              </td>
+              <td>{{ avgRating(cottage.reservations) }}</td>
+              <td>{{ cottage.dateAvailable | date: 'dd-MM-yyyy' }}</td>
+              <td><button class="btn btn-delete" (click)="deleteCottage(cottage.id)">Delete</button></td>
+            </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+  } @else {
+    <p>You have no cottages.</p>
+  }
+
+  @if (showEdit) {
+    <div class="edit-cottage form-section">
+      <h2>Edit cottage</h2>
+      <form>
+        <label>Name:<input type="text" name="editName" [(ngModel)]="edtCottage.name"></label>
+        <label>Location:<input type="text" name="editLocation" [(ngModel)]="edtCottage.location"></label>
+        <label>Services:<textarea name="editServices" [(ngModel)]="edtCottage.services"></textarea></label>
+        <label>Phone:<input type="text" name="editPhone" [(ngModel)]="edtCottage.phone"></label>
+        <label>Prices:
+          <input type="number" name="summerPrice" [(ngModel)]="edtCottage.prices.summer" placeholder="Summer">
+          <input type="number" name="winterPrice" [(ngModel)]="edtCottage.prices.winter" placeholder="Winter">
+        </label>
+        <label>Coordinates:
+          x<input type="text" name="xCoordinate" [(ngModel)]="edtCottage.coordinates.x">
+          y<input type="text" name="yCoordinate" [(ngModel)]="edtCottage.coordinates.y">
+        </label>
+        <div class="edit-actions">
+          <button class="btn btn-success" (click)="editCottage()">Confirm</button>
+          <button class="btn btn-cancel" (click)="showEdit = false">Cancel</button>
+        </div>
+      </form>
+    </div>
+  }
+
+  <hr>
+
+  <div class="register-cottage form-section">
+    <h2>Register new cottage</h2>
+    <form>
+      <label>Name:<input type="text" name="newName" [(ngModel)]="newCottage.name"></label>
+      <label>Location:<input type="text" name="newLocation" [(ngModel)]="newCottage.location"></label>
+      <label>Services:<textarea name="newServices" [(ngModel)]="newCottage.services"></textarea></label>
+      <label>Phone:<input type="text" name="newPhone" [(ngModel)]="newCottage.phone"></label>
+      <label>Prices:</label>
+      <label>
+        Summer<input type="number" name="newSummerPrice" [(ngModel)]="newCottage.prices.summer">
+        Winter<input type="number" name="newWinterPrice" [(ngModel)]="newCottage.prices.winter">
+      </label>
+      <label>Coordinates:</label>
+      <label>
+        x<input type="text" name="newXCoordinate" [(ngModel)]="newCottage.coordinates.x">
+        y<input type="text" name="newYCoordinate" [(ngModel)]="newCottage.coordinates.y">
+      </label>
+      <label>Insert cottage images:<input type="file" id="images" (change)="onFilesSelected($event)" multiple></label>
+      <label>Load JSON file:<input type="file" id="jsonUpload" (change)="onJsonSelected($event)" accept=".json"></label>
+      <div class="register-actions">
+        <button class="btn btn-primary" (click)="registerCottage()">Register</button>
+      </div>
+    </form>
+  </div>
+</div>

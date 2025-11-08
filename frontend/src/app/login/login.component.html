@@ -1,0 +1,129 @@
+<div class="auth-page">
+
+  <div class="auth-container card">
+    <h2>{{ isAdmin ? "Admin " : "" }}Log in</h2>
+    <div class="form-section">
+      <label>
+        Username
+        <input type="text" name="username" [(ngModel)]="username" placeholder="Enter username">
+      </label>
+      <label>
+        Password
+        <input type="password" name="password" [(ngModel)]="password" placeholder="Enter password">
+      </label>
+      <button class="btn btn-primary" (click)="login()">Log in</button>
+    </div>
+  </div>
+
+  @if (!isAdmin) {
+    <hr>
+
+    <div class="register-container card">
+      <h2>Register</h2>
+      <form enctype="multipart/form-data" class="form-section">
+        <label>Username
+          <input type="text" name="newUsername" [(ngModel)]="newUser.username" placeholder="Choose username">
+        </label>
+        <label>Password
+          <input type="password" name="newPassword" [(ngModel)]="newUser.password" placeholder="Enter password">
+        </label>
+        <label>First name
+          <input type="text" name="newFirstName" [(ngModel)]="newUser.firstName">
+        </label>
+        <label>Last name
+          <input type="text" name="newLastName" [(ngModel)]="newUser.lastName">
+        </label>
+
+        <div class="radio-group">
+          <span>Gender:</span>
+          <label><input type="radio" name="newGender" [(ngModel)]="newUser.gender" value="M">Male</label>
+          <label><input type="radio" name="newGender" [(ngModel)]="newUser.gender" value="F">Female</label>
+        </div>
+
+        <label>Address
+          <input type="text" name="newAddress" [(ngModel)]="newUser.address">
+        </label>
+        <label>Phone
+          <input type="text" name="newPhone" [(ngModel)]="newUser.phone">
+        </label>
+        <label>Email
+          <input type="email" name="newEmail" [(ngModel)]="newUser.email">
+        </label>
+        <label>Profile image
+          <input type="file" (change)="onFileSelected($event)" accept=".png,.jpg,.jpeg" name="newProfileImage">
+        </label>
+        <label>Credit card
+          <input type="text" name="newCreditCard" [(ngModel)]="newUser.creditCard" (ngModelChange)="detectCardType()">
+          @if(cardImage) { <img [src]="cardImage" class="card-logo"> }
+        </label>
+
+        <div class="radio-group">
+          <span>Type:</span>
+          <label><input type="radio" name="newType" [(ngModel)]="newUser.type" value="tourist"> Tourist</label>
+          <label><input type="radio" name="newType" [(ngModel)]="newUser.type" value="owner"> Owner</label>
+        </div>
+
+        <button class="btn btn-success" (click)="register()">Register</button>
+      </form>
+    </div>
+
+    <hr>
+
+    <div class="info-container card">
+      <h2>General information</h2>
+      <div class="info-stats">
+        <div class="stat">
+          <h3>{{ allCottages.length }}</h3>
+          <p>Cottages</p>
+        </div>
+        <div class="stat">
+          <h3>{{ allOwners.length }}</h3>
+          <p>Owners</p>
+        </div>
+        <div class="stat">
+          <h3>{{ allTourists.length }}</h3>
+          <p>Tourists</p>
+        </div>
+        <div class="stat">
+          <h3>{{ reservedCottagesLast24h }}</h3>
+          <p>Reserved last 24h</p>
+        </div>
+        <div class="stat">
+          <h3>{{ reservedCottagesLast7d }}</h3>
+          <p>Reserved last 7 days</p>
+        </div>
+        <div class="stat">
+          <h3>{{ reservedCottagesLast30d }}</h3>
+          <p>Reserved last 30 days</p>
+        </div>
+      </div>
+    </div>
+
+    <table class="info-table">
+      <thead>
+        <tr>
+          <th>
+            Name
+            <button (click)="sortNameAsc()">⬇</button>
+            <button (click)="sortNameDesc()">⬆</button><br>
+            <input type="text" [(ngModel)]="searchName" (ngModelChange)="search()" placeholder="Search by name">
+          </th>
+          <th>
+            Location
+            <button (click)="sortLocationAsc()">⬇</button>
+            <button (click)="sortLocationDesc()">⬆</button><br>
+            <input type="text" [(ngModel)]="searchLocation" (ngModelChange)="search()" placeholder="Search by location">
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        @for(cottage of allCottages; track cottage.id) {
+          <tr>
+            <td>{{ cottage.name }}</td>
+            <td>{{ cottage.location }}</td>
+          </tr>
+        }
+      </tbody>
+    </table>
+  }
+</div>

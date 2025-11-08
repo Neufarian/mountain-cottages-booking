@@ -1,0 +1,86 @@
+.cottages-page {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+.card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+h2 {
+  text-align: center;
+  color: #1f2937;
+  margin-bottom: 1rem;
+}
+
+.table-container {
+  overflow-x: auto;
+}
+
+.cottages-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.cottages-table th,
+.cottages-table td {
+  padding: 0.75rem;
+  border: 1px solid #e5e7eb;
+  text-align: left;
+}
+
+.cottages-table th input {
+  width: 90%;
+  margin-top: 0.3rem;
+  padding: 0.4rem 0.6rem;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  font-size: 0.9rem;
+}
+
+.cottage-link {
+  color: #2563eb;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.cottage-link:hover {
+  text-decoration: underline;
+}
+
+.rating {
+  display: inline-block;
+  width: 50px;
+  font-weight: 500;
+}
+
+.stars {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.stars img {
+  width: 20px;
+  height: 20px;
+  margin-right: 2px;
+}
+
+@media (max-width: 700px) {
+  .cottages-table th,
+  .cottages-table td {
+    padding: 0.5rem;
+  }
+
+  .stars img {
+    width: 16px;
+    height: 16px;
+  }
+
+  .cottages-table th input {
+    width: 100%;
+  }
+}

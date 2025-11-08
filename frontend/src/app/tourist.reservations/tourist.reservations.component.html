@@ -1,0 +1,95 @@
+<div class="reservations-page card">
+
+  <h2>Current reservations</h2>
+  @if(currentReservations.length > 0) {
+    <div class="table-container">
+      <table class="reservations-table">
+        <thead>
+          <tr>
+            <th>Start date</th>
+            <th>End date</th>
+            <th>Cottage</th>
+            <th>Location</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          @for(r of currentReservations; track r.reservation.id + '-' + r.cottage.id) {
+            <tr>
+              <td>{{ r.reservation.startDate | date: 'dd-MM-yyyy' }}</td>
+              <td>{{ r.reservation.endDate | date: 'dd-MM-yyyy' }}</td>
+              <td>{{ r.cottage.name }}</td>
+              <td>{{ r.cottage.location }}</td>
+              @if(isCancelable(r.reservation)) {
+                <td><button class="btn btn-cancel" (click)="cancelReservation(r.cottage.id, r.reservation.id)">Cancel</button></td>
+              }
+            </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+  } @else {
+    <p>You have no current reservations.</p>
+  }
+
+  <h2>Previous reservations</h2>
+  @if(previousReservations.length > 0) {
+    <div class="table-container">
+      <table class="reservations-table">
+        <thead>
+          <tr>
+            <th>Start date</th>
+            <th>Cottage name</th>
+            <th>My comment</th>
+            <th>My rate</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          @for(r of previousReservations; track r.reservation.id + '-' + r.cottage.id) {
+            <tr>
+              <td>{{ r.reservation.startDate | date: 'dd-MM-yyyy' }}</td>
+              <td>{{ r.cottage.name }}</td>
+              <td>{{ r.reservation.touristComment }}</td>
+              <td>{{ r.reservation.rating }}</td>
+              @if(!r.reservation.rating) {
+                <td><button class="btn btn-rate" (click)="cottageId = r.cottage.id; reservationId = r.reservation.id; showRate = true">Rate</button></td>
+              }
+            </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+  } @else {
+    <p>You have no previous reservations.</p>
+  }
+
+  @if(showRate) {
+    <div class="rate-form card">
+      <h2>Rate your stay</h2>
+      <form>
+        <label>Comment
+          <textarea [(ngModel)]="comment" name="comment" maxlength="500"></textarea>
+        </label>
+
+        <div class="star-rating">
+          Rating
+          @for(i of stars; track i) {
+            <img
+              [src]="getStarImage(i)"
+              (mouseover)="hoverRating(i + 1)"
+              (mouseleave)="hoverRating(0)"
+              (click)="setRating(i + 1)"
+              class="star"
+            />
+          }
+        </div>
+
+        <div class="rate-actions">
+          <button class="btn btn-success" (click)="rateCottage(cottageId, reservationId, rating, comment)">Submit</button>
+          <button class="btn btn-cancel" (click)="showRate = false">Cancel</button>
+        </div>
+      </form>
+    </div>
+  }
+</div>

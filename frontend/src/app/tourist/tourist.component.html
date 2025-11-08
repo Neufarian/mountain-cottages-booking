@@ -1,0 +1,36 @@
+<div class="tourist-page">
+  <header class="tourist-header card">
+    <div class="header-top">
+      <button class="btn btn-logout" routerLink="">Log out</button>
+    </div>
+
+    <div class="change-password form-section">
+      <h2>Change password</h2>
+      <label>
+        Old password
+        <input type="password" [(ngModel)]="oldPassword" placeholder="Enter old password">
+      </label>
+      <label>
+        New password
+        <input type="password" [(ngModel)]="newPassword" placeholder="Enter new password">
+      </label>
+      <label>
+        Repeat password
+        <input type="password" [(ngModel)]="repeatPassword" placeholder="Repeat new password">
+      </label>
+      <button class="btn btn-primary" (click)="changePassword()">Change</button>
+    </div>
+  </header>
+
+  <hr>
+
+  <nav class="tourist-nav card">
+    <a routerLink="profile" routerLinkActive="active">Profile</a>
+    <a routerLink="cottages" routerLinkActive="active">Cottages</a>
+    <a routerLink="reservations" routerLinkActive="active">Reservations</a>
+  </nav>
+
+  <main class="tourist-content card">
+    <router-outlet></router-outlet>
+  </main>
+</div>

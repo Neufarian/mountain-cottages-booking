@@ -1,0 +1,109 @@
+<div class="owner-reservations">
+  <h2>Reservations</h2>
+
+  @if (myCottages.length > 0) {
+    <div class="cottages-list">
+      @for (cottage of myCottages; track cottage.id) {
+        <div class="cottage-card card">
+          <h3>{{ cottage.name }}</h3>
+
+          <div class="table-container">
+            <table>
+              <tr>
+                <th>Tourist</th>
+                <th>Start date</th>
+                <th>End date</th>
+                <th>Adults</th>
+                <th>Children</th>
+                <th>Requests</th>
+                <th>Status</th>
+                <th>Action</th>
+              </tr>
+
+              @if (hasWaitingReservations(cottage.reservations)) {
+                @for (reservation of cottage.reservations; track reservation.id) {
+                  @if (reservation.status === 'waiting') {
+                    <tr>
+                      <td>{{ getTourist(reservation.tourist) }}</td>
+                      <td>{{ reservation.startDate | date: 'dd-MM-yyyy' }}</td>
+                      <td>{{ reservation.endDate | date: 'dd-MM-yyyy' }}</td>
+                      <td>{{ reservation.numAdults }}</td>
+                      <td>{{ reservation.numChildren }}</td>
+                      <td>{{ reservation.requests }}</td>
+                      <td class="status waiting">{{ reservation.status }}</td>
+                      <td>
+                        <button class="btn btn-primary"
+                          (click)="showProcess = true; cottageId = cottage.id; reservationId = reservation.id">
+                          Approve/Decline
+                        </button>
+                      </td>
+                    </tr>
+                  }
+                }
+              } @else {
+                <tr>
+                  <td colspan="8" class="no-reservations">No new reservations for this cottage.</td>
+                </tr>
+              }
+            </table>
+          </div>
+        </div>
+      }
+    </div>
+  } @else {
+    <p>You have no reservations.</p>
+  }
+
+  @if (showProcess) {
+    <div class="process-reservation card">
+      <h3>Process reservation</h3>
+      <p>Do you accept this reservation?</p>
+
+      <div class="radio-group">
+        <label>
+          <input type="radio" name="status" [(ngModel)]="status" value="approved" /> Yes
+        </label>
+        <label>
+          <input type="radio" name="status" [(ngModel)]="status" value="declined" /> No
+        </label>
+      </div>
+
+      @if (status === 'declined') {
+        <textarea placeholder="Enter reason..." [(ngModel)]="comment"></textarea>
+      }
+
+      <div class="actions">
+        <button class="btn btn-primary"
+          (click)="processReservation(cottageId, reservationId, status, comment)">
+          Submit
+        </button>
+        <button class="btn btn-cancel" (click)="showProcess = false">Cancel</button>
+      </div>
+    </div>
+  }
+
+  <div class="full-calendar-wrapper">
+    <full-calendar [options]="calendarOptions"></full-calendar>
+  </div>
+
+  <ng-template #reservationDialog>
+    <h2 mat-dialog-title>Process Reservation</h2>
+    <mat-dialog-content>
+      <p>Do you accept this reservation?</p>
+
+      <mat-radio-group [(ngModel)]="status">
+        <mat-radio-button value="approved">Yes</mat-radio-button>
+        <mat-radio-button value="declined">No</mat-radio-button>
+      </mat-radio-group>
+
+      @if (status === 'declined') {
+        <textarea placeholder="Enter reason..." [(ngModel)]="comment"></textarea>
+      }
+    </mat-dialog-content>
+
+    <mat-dialog-actions align="end">
+      <button mat-button (click)="submitDialog()">Submit</button>
+      <button mat-button (click)="dialog.closeAll()">Cancel</button>
+    </mat-dialog-actions>
+  </ng-template>
+</div>

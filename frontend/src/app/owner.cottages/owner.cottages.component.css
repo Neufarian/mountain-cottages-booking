@@ -1,0 +1,172 @@
+.cottages-page {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+.card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+  margin-bottom: 1rem;
+}
+
+.cottages-table {
+  width: 100%;
+  min-width: 900px;
+  border-collapse: collapse;
+}
+
+.cottages-table th,
+.cottages-table td {
+  border: 1px solid #d1d5db;
+  padding: 0.4rem 0.6rem;
+  text-align: left;
+  font-size: 0.9rem;
+}
+
+.cottages-table th {
+  background-color: #f3f4f6;
+  font-weight: 600;
+}
+
+.cottages-table td button {
+  margin: 0.1rem;
+  padding: 0.2rem 0.5rem;
+  border-radius: 6px;
+  border: none;
+  font-size: 0.8rem;
+  cursor: pointer;
+}
+
+.btn-edit {
+  background-color: #2563eb;
+  color: white;
+}
+
+.btn-edit:hover {
+  background-color: #1d4ed8;
+}
+
+.btn-delete {
+  background-color: #ef4444;
+  color: white;
+}
+
+.btn-delete:hover {
+  background-color: #dc2626;
+}
+
+.edit-cottage, .register-cottage {
+  margin-top: 1rem;
+}
+
+.edit-cottage label, .register-cottage label {
+  display: block;
+  margin-bottom: 0.6rem;
+}
+
+.edit-cottage input, .edit-cottage textarea,
+.register-cottage input, .register-cottage textarea {
+  width: 100%;
+  padding: 0.4rem 0.6rem;
+  margin-top: 0.2rem;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  font-size: 0.9rem;
+}
+
+.edit-actions, .register-actions {
+  margin-top: 0.5rem;
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.btn-primary {
+  background-color: #2563eb;
+  color: white;
+}
+
+.btn-primary:hover {
+  background-color: #1d4ed8;
+}
+
+.btn-success {
+  background-color: #16a34a;
+  color: white;
+}
+
+.btn-success:hover {
+  background-color: #15803d;
+}
+
+.btn-secondary {
+  background-color: #9ca3af;
+  color: white;
+}
+
+.btn-secondary:hover {
+  background-color: #6b7280;
+}
+
+@media (max-width: 900px) {
+  .cottages-table th, .cottages-table td {
+    font-size: 0.8rem;
+    padding: 0.3rem 0.4rem;
+  }
+}
+
+@media (max-width: 700px) {
+  .edit-actions, .register-actions {
+    flex-direction: column;
+  }
+}
+
+.cottages-page .btn {
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+  border: none;
+}
+
+.cottages-page .btn-primary {
+  background-color: #2563eb;
+  color: white;
+}
+
+.cottages-page .btn-primary:hover {
+  background-color: #1d4ed8;
+}
+
+.cottages-page .btn-success {
+  background-color: #16a34a;
+  color: white;
+}
+
+.cottages-page .btn-success:hover {
+  background-color: #15803d;
+}
+
+.cottages-page .btn-cancel {
+  background-color: #ef4444;
+  color: white;
+}
+
+.cottages-page .btn-cancel:hover {
+  background-color: #b91c1c;
+}
+
+.error-snackbar {
+  background: #d32f2f;
+  color: white;
+  font-weight: 600;
+}
+
+.table-container {
+  overflow-x: auto;
+  width: 100%;
+}

@@ -1,0 +1,150 @@
+<div class="cottage-details-page card">
+  <button class="btn-back" routerLink="/tourist/cottages">
+    ← Back
+  </button>
+
+  <h2>{{ cottage.name }}</h2>
+
+  <div class="cottage-info">
+    <p><strong>Location:</strong> {{ cottage.location }}</p>
+    <p><strong>Services:</strong> {{ cottage.services }}</p>
+
+    <div class="prices">
+      <p><strong>Price per:</strong></p>
+      <ul>
+        <li>Summer: {{ cottage.prices.summer }} RSD</li>
+        <li>Winter: {{ cottage.prices.winter }} RSD</li>
+      </ul>
+    </div>
+
+    <p><strong>Phone:</strong> {{ cottage.phone }}</p>
+  </div>
+
+  <div class="ratings-section">
+    <p><strong>Ratings:</strong></p>
+    <div class="table-container">
+      <table class="ratings-table">
+        <thead>
+          <tr>
+            <th>Comment</th>
+            <th>Rating</th>
+          </tr>
+        </thead>
+        <tbody>
+          @for (reservation of cottage.reservations; track reservation.id) {
+            @if (reservation.rating) {
+              <tr>
+                <td>{{ reservation.touristComment }}</td>
+                <td>{{ reservation.rating }}</td>
+              </tr>
+            }
+          }
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="map-container" id="map"></div>
+
+  <div class="gallery">
+    @for (pic of cottage.pictures; track pic) {
+      <div class="gallery-item">
+        <img [src]="'http://localhost:4000' + pic" alt="Cottage picture">
+      </div>
+    }
+  </div>
+
+  <hr>
+
+  <h2>Make a reservation</h2>
+
+  <mat-stepper linear #stepper>
+    <mat-step [stepControl]="firstFormGroup">
+      <form [formGroup]="firstFormGroup">
+        <ng-template matStepLabel>Basic information</ng-template>
+
+        <div class="start-end-dates">
+          <div class="start-date-time">
+            <mat-form-field>
+              <mat-label>Start date</mat-label>
+              <input matInput [matDatepicker]="startPicker" formControlName="startDate" [min]="minDate">
+              <mat-datepicker-toggle matSuffix [for]="startPicker"></mat-datepicker-toggle>
+              <mat-datepicker #startPicker></mat-datepicker>
+            </mat-form-field>
+
+            <mat-form-field>
+              <mat-label>Enter time</mat-label>
+              <input matInput type="time" formControlName="startTime" min="14:00" max="23:59">
+            </mat-form-field>
+          </div>
+
+          <div class="end-date-time">
+            <mat-form-field>
+              <mat-label>End date</mat-label>
+              <input matInput [matDatepicker]="endPicker" formControlName="endDate">
+              <mat-datepicker-toggle matSuffix [for]="endPicker"></mat-datepicker-toggle>
+              <mat-datepicker #endPicker></mat-datepicker>
+            </mat-form-field>
+
+            <mat-form-field>
+              <mat-label>Exit time</mat-label>
+              <input matInput type="time" formControlName="endTime" min="00:00" max="10:00">
+            </mat-form-field>
+          </div>
+        </div>
+
+        <div class="people-inputs">
+          <mat-form-field>
+            <mat-label>Adults</mat-label>
+            <input type="number" matInput formControlName="adults" min="1">
+          </mat-form-field>
+
+          <mat-form-field>
+            <mat-label>Children</mat-label>
+            <input type="number" matInput formControlName="children" min="0">
+          </mat-form-field>
+        </div>
+
+        <div class="step-actions">
+          <button mat-raised-button color="primary" matStepperNext [disabled]="!firstFormGroup.valid">
+            Next
+          </button>
+        </div>
+      </form>
+    </mat-step>
+
+    <mat-step [stepControl]="secondFormGroup">
+      <form [formGroup]="secondFormGroup">
+        <ng-template matStepLabel>Confirmation and payment</ng-template>
+
+        <div class="summary">
+          <h4>Reservation information</h4>
+          <p><strong>Cottage:</strong> {{ cottage.name }}</p>
+          <p><strong>Start date:</strong> {{ firstFormGroup.value.startDate | date:'dd.MM.yyyy' }} from {{ firstFormGroup.value.startTime }}</p>
+          <p><strong>End date:</strong> {{ firstFormGroup.value.endDate | date:'dd.MM.yyyy' }} until {{ firstFormGroup.value.endTime }}</p>
+          <p><strong>Adults:</strong> {{ firstFormGroup.value.adults }}</p>
+          <p><strong>Children:</strong> {{ firstFormGroup.value.children }}</p>
+          <p><strong>Price:</strong> {{ totalPrice }} RSD</p>
+        </div>
+
+        <mat-form-field class="full-width">
+          <mat-label>Card number</mat-label>
+          <input matInput formControlName="cardNumber">
+        </mat-form-field>
+
+        <mat-form-field class="full-width">
+          <mat-label>Requests (optional)</mat-label>
+          <textarea matInput formControlName="requests" maxlength="500"></textarea>
+          <mat-hint align="end">{{ secondFormGroup.get('requests')?.value?.length || 0 }}/500</mat-hint>
+        </mat-form-field>
+
+        <div class="step-actions">
+          <button mat-button matStepperPrevious>Back</button>
+          <button mat-raised-button color="accent" (click)="submitBooking()">
+            Confirm and pay
+          </button>
+        </div>
+      </form>
+    </mat-step>
+  </mat-stepper>
+</div>

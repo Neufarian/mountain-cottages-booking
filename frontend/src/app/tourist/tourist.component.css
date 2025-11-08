@@ -1,0 +1,148 @@
+.tourist-page {
+  max-width: 1000px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+
+.card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  margin-bottom: 2rem;
+}
+
+.tourist-header {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.header-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.btn {
+  padding: 0.6rem 1rem;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.btn-primary {
+  background: #2563eb;
+  color: white;
+}
+
+.btn-primary:hover {
+  background: #1d4ed8;
+}
+
+.btn-logout {
+  background: #ef4444;
+  color: white;
+}
+
+.btn-logout:hover {
+  background: #dc2626;
+}
+
+.form-section {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+label {
+  display: flex;
+  flex-direction: column;
+  font-weight: 500;
+  color: #374151;
+  font-size: 0.95rem;
+}
+
+input[type="password"] {
+  margin-top: 0.3rem;
+  padding: 0.5rem 0.7rem;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  font-size: 0.95rem;
+}
+
+input:focus {
+  outline: none;
+  border-color: #2563eb;
+  box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.15);
+}
+
+/* Navigation */
+.tourist-nav {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.tourist-nav a {
+  text-decoration: none;
+  color: #374151;
+  font-weight: 600;
+  padding: 0.6rem 1rem;
+  border-radius: 8px;
+  transition: background 0.2s, color 0.2s;
+}
+
+.tourist-nav a:hover {
+  background: rgba(37, 99, 235, 0.08);
+  color: #1d4ed8;
+}
+
+.tourist-nav a.active {
+  background: #2563eb;
+  color: #fff;
+}
+
+.tourist-content {
+  min-height: 400px;
+  padding: 2rem;
+  border-radius: 12px;
+  background: #fff;
+}
+
+.profile-image {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 10px;
+  border: 2px solid #e5e7eb;
+}
+
+@media (max-width: 700px) {
+  .tourist-page {
+    margin: 1rem;
+  }
+  .tourist-nav {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .tourist-nav a {
+    text-align: center;
+  }
+  .tourist-content {
+    padding: 1rem;
+  }
+  .profile-image {
+    width: 150px;
+    height: 150px;
+  }
+}
+
+.error-snackbar {
+  background: #d32f2f;
+  color: white;
+  font-weight: 600;
+}

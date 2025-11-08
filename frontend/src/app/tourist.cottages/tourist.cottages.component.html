@@ -1,0 +1,45 @@
+<div class="cottages-page card">
+  <h2>General information</h2>
+
+  <div class="table-container">
+    <table class="cottages-table">
+      <thead>
+        <tr>
+          <th>
+            Name
+            <input type="text" [(ngModel)]="searchName" (ngModelChange)="search()" placeholder="Search by name">
+          </th>
+          <th>
+            Location
+            <input type="text" [(ngModel)]="searchLocation" (ngModelChange)="search()" placeholder="Search by location">
+          </th>
+          <th>Average rating</th>
+        </tr>
+      </thead>
+      <tbody>
+        @for(cottage of allCottages; track cottage.id) {
+          <tr>
+            <td>
+              <a [routerLink]="['/cottage', cottage.id]" class="cottage-link">{{ cottage.name }}</a>
+            </td>
+            <td>{{ cottage.location }}</td>
+            <td>
+              <div class="rating">{{ avgRating(cottage.reservations) | number:'1.2-2' }}</div>
+              <div class="stars">
+                @for (i of getFullStars(cottage.reservations); track i) {
+                  <img src="images/stars/fullStar.png" alt="full star">
+                }
+                @if (avgRating(cottage.reservations) % 1 >= 0.5) {
+                  <img src="images/stars/halfStar.png" alt="half star">
+                }
+                @for (i of getEmptyStars(cottage.reservations); track i) {
+                  <img src="images/stars/emptyStar.png" alt="empty star">
+                }
+              </div>
+            </td>
+          </tr>
+        }
+      </tbody>
+    </table>
+  </div>
+</div>
