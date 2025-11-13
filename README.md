@@ -12,6 +12,6 @@ Full-stack web platform for renting mountain cottages in Serbia. Implements mult
 
 ## Tech Stack
 - **Frontend:** Angular, HTML, CSS, JavaScript/TypeScript
-- **Backend:** Spring Boot
+- **Backend:** Node.js
 - **Database:** MongoDB
 - **Tools:** VS Code, Postman
